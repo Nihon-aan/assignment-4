@@ -212,45 +212,19 @@ function updateTab(tab){
 
 
 
+let deleteButtons = document.getElementsByClassName('del');
 
+for(let deleteButton of deleteButtons){
+    deleteButton.addEventListener('click', function(event){
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        event.currentTarget.parentNode.parentNode.parentNode.removeChild( event.currentTarget.parentNode.parentNode);
+        statTotal.innerText = count('card');
+        statInterview.innerText = count('card-interview');
+        statRejected.innerText = count('card-rejected');
+        updateTab(currentTab);
+    })
+}
 
 
 
