@@ -106,6 +106,116 @@ function updateStatus(num) {
 
 
 
+document.getElementById('all-btn').addEventListener('click', function () {
+    currentTab = 'all';
+    updateTab(currentTab);
+});
+
+document.getElementById('interview-btn').addEventListener('click', function () {
+    currentTab = 'interview';
+    updateTab(currentTab);
+});
+
+document.getElementById('rejected-btn').addEventListener('click', function () {
+    currentTab = 'rejected';
+    updateTab(currentTab);
+});
+
+
+
+
+function updateTab(tab){
+
+    if (tab === 'all') {
+    let viewByStatusOfCards = document.getElementsByClassName('card');
+    for (let viewByStatusOfCard of viewByStatusOfCards) {
+        viewByStatusOfCard.classList.remove('hidden');
+    }
+
+    // Fix: check if total cards is 0
+    if (count('card') === 0) {
+        document.getElementById('empty').classList.remove('hidden');
+    } else {
+        document.getElementById('empty').classList.add('hidden');
+    }
+
+    document.getElementById('available-jobs').innerText = count('card');
+}
+
+   else if(tab ==='interview'){
+         let Empty = statInterview.innerText;
+
+    if (Number(Empty) === 0) {
+        let viewByStatusOfCards = document.getElementsByClassName('card');
+        for (let viewByStatusOfCard of viewByStatusOfCards) {
+            viewByStatusOfCard.classList.add('hidden');
+        }
+        document.getElementById('empty').classList.remove('hidden');
+    }
+
+
+    else {
+         let viewByStatusOfCards = document.getElementsByClassName('card');
+        for (let viewByStatusOfCard of viewByStatusOfCards) {
+            viewByStatusOfCard.classList.add('hidden');
+        }
+        let viewByStatusOfCardsI = document.getElementsByClassName('card-interview');
+        for (let viewByStatusOfCard of viewByStatusOfCardsI) {
+            viewByStatusOfCard.classList.remove('hidden');
+        }
+        document.getElementById('empty').classList.add('hidden');
+    }
+
+    document.getElementById('available-jobs').innerText = count('card-interview');
+
+
+    }
+
+    else if(tab==='rejected'){
+
+        let Empty = statRejected.innerText;
+
+    if (Number(Empty) === 0) {
+          let viewByStatusOfCards = document.getElementsByClassName('card');
+        for (let viewByStatusOfCard of viewByStatusOfCards) {
+            viewByStatusOfCard.classList.add('hidden');
+        }
+        document.getElementById('empty').classList.remove('hidden');
+
+    }
+
+    else {
+        let viewByStatusOfCards = document.getElementsByClassName('card');
+        for (let viewByStatusOfCard of viewByStatusOfCards) {
+            viewByStatusOfCard.classList.add('hidden');
+            // viewByStatusOfCard.classList.remove('hidden');
+
+        }
+
+        let viewByStatusOfCardsR = document.getElementsByClassName('card-rejected');
+        for (let viewByStatusOfCard of viewByStatusOfCardsR) {
+            viewByStatusOfCard.classList.remove('hidden');
+        }
+
+        document.getElementById('empty').classList.add('hidden');
+
+    }
+
+     document.getElementById('available-jobs').innerText = count('card-rejected');
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
 
 
 
