@@ -26,6 +26,85 @@ let totalUpdate = count('card');
 
 
 
+for (let i = 1; i <= totalUpdate; i++) {
+    updateStatus(i);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// machine
+
+function updateStatus(num) {
+
+    let card = document.getElementById('card-' + num);
+    let badge = document.getElementById('badge-' + num);
+    let interviewBtn = document.getElementById('interview-' + num);
+    let rejectedBtn = document.getElementById('rejected-' + num);
+
+
+    interviewBtn.addEventListener('click', function () {
+        card.classList.remove('card-rejected');
+        card.classList.add('card-interview');
+
+        badge.innerText = 'INTERVIEW';
+        badge.classList.remove('bg-[#EEF4FF]', 'border-none', 'text-[#002C5C]');
+        badge.classList.remove('text-[#EF4444]', 'bg-[#f36464]', 'border-[#EF4444]');
+        badge.classList.add('btn-outline', 'text-white', 'bg-[#7dd698]', 'border-[#10B981]');
+        
+        statInterview.innerText = count('card-interview');
+        statRejected.innerText = count('card-rejected');
+
+        updateTab(currentTab);
+
+
+        
+
+
+    });
+
+    rejectedBtn.addEventListener('click', function () {
+        card.classList.remove('card-interview');
+        card.classList.add('card-rejected');
+
+        badge.innerText = 'REJECTED';
+        badge.classList.remove('bg-[#EEF4FF]', 'border-none', 'text-[#002C5C]');
+        badge.classList.remove('text-[#10B981]', 'bg-[#7dd698]', 'border-[#10B981]');
+        badge.classList.add('btn-outline', 'text-white', 'bg-[#f36464]', 'border-[#EF4444]');
+
+        statInterview.innerText = count('card-interview');
+        statRejected.innerText = count('card-rejected');
+
+         updateTab(currentTab);
+       
+    });
+
+
+
+}
+
+
+
+
+
+
 
 
 
